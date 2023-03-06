@@ -26,6 +26,13 @@ namespace Classes.ClassesEcole
     class EtudiantRegulier : Etudiant
     {
         private double noteMoyen;
+
+        public EtudiantRegulier(double noteMoyen):base(section)
+        {
+            NoteMoyen = noteMoyen;
+        }
+
+        public double NoteMoyen { get => noteMoyen; set => noteMoyen = value; }
     }
 
 }

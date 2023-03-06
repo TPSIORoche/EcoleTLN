@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Classes.ClassesEcole
 {
     abstract class Contact
     {
-        protected private int matricule;
+        private int matricule;
         protected string nom;
         protected int anneeArrivee;
 
@@ -31,6 +32,22 @@ namespace Classes.ClassesEcole
                 else
                 {
                     throw new Exception("L'année n'est pas valide");
+                }
+            }
+        }
+
+        public int Matricule
+        {
+            get => matricule;
+            set
+            {
+                if (Regex.IsMatch((string)value, @"^[0-9]{4}$"))
+                {
+                    this.matricule = value;
+                }
+                else
+                {
+                    throw new Exception("erreur : Matricule non valide");
                 }
             }
         }
