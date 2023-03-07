@@ -12,7 +12,7 @@ namespace Classes.ClassesEcole
 
         protected Etudiant(string nom, int matricule, int anneeArrivee, string section):base(matricule, nom, anneeArrivee)
         {
-            this.nom = nom;
+            Nom = nom;
             this.matricule = matricule;
             this.anneeArrivee = anneeArrivee;
             this.section = section;
@@ -31,7 +31,7 @@ namespace Classes.ClassesEcole
 
         public override string ToString()
         {
-            return $"Etudiant Régulier :\n\tMatricule : {this.matricule}\n\tNom : {this.nom}\n\tAnnée : {this.AnneeArrivee}\n\tSection : {this.section}\n\tMoyenne : {this.univesiteOrigine}";
+            return $"Etudiant Régulier :\n\tMatricule : {this.matricule}\n\tNom : {this.Nom}\n\tAnnée : {this.AnneeArrivee}\n\tSection : {this.section}\n\tMoyenne : {this.univesiteOrigine}\n";
         }
 
          
@@ -40,18 +40,19 @@ namespace Classes.ClassesEcole
 
     class EtudiantRegulier : Etudiant
     {
-        private double noteMoyen;
+        protected double noteMoyenne;
+        public double NoteMoyenne { get => noteMoyenne; set => noteMoyenne = value; }
 
-        public EtudiantRegulier(string nom, int matricule, int anneeArrivee, string section,double noteMoyen) : base(nom, matricule, anneeArrivee, section)
+
+        public EtudiantRegulier(string nom, int matricule, int anneeArrivee, string section,double noteMoyenne) : base(nom, matricule, anneeArrivee, section)
         {
-            this.NoteMoyen = noteMoyen;
+            NoteMoyenne = noteMoyenne;
         }
 
-        public double NoteMoyen { get => noteMoyen; set => noteMoyen = value; }
 
         public override string ToString()
         {
-            return $"Etudiant Régulier :\n\tMatricule : {this.matricule}\n\tNom : {this.nom}\n\tAnnée : {this.AnneeArrivee}\n\tSection : {this.section}\n\tMoyenne : {this.noteMoyen}";
+            return $"Etudiant Régulier :\n\tMatricule : {this.matricule}\n\tNom : {this.Nom}\n\tAnnée : {this.AnneeArrivee}\n\tSection : {this.section}\n\tMoyenne : {NoteMoyenne}\n";
             
         }
     }

@@ -10,7 +10,7 @@ namespace Classes.ClassesEcole
     abstract class Contact
     {
         protected int matricule;
-        protected string nom;
+        private string nom;
         protected int anneeArrivee;
 
         protected Contact(int matricule, string nom, int anneeArrivee)
@@ -25,7 +25,7 @@ namespace Classes.ClassesEcole
             get => anneeArrivee;
             set
             {
-                if (value > DateTime.Now.Year)
+                if (value < DateTime.Now.Year)
                 {
                     anneeArrivee = value;
                 }
@@ -41,16 +41,18 @@ namespace Classes.ClassesEcole
             get => matricule;
             set
             {
-                if (Regex.IsMatch((string)value, @"^[0-9]{4}$"))
-                {
+                //if (Regex.IsMatch(value, @"^[0-9]{4}$"))
+                //{
                     this.matricule = value;
-                }
-                else
-                {
-                    throw new Exception("erreur : Matricule non valide");
-                }
+                //}
+                //else
+                //{
+                //    throw new Exception("erreur : Matricule non valide");
+                //}
             }
         }
+
+        public string Nom { get => nom; set => nom = value; }
 
         public abstract string ToString();
         

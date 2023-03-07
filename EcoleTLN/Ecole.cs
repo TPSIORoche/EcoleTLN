@@ -14,14 +14,28 @@ namespace Classes.ClassesEcole
 
         public string Nom { get => nom; set => nom = value; }
         public int AnneeCreation { get => anneeCreation; set => anneeCreation = value; }
+        public Dictionary<int, Contact> Contacts { get => contacts; set => contacts = value; }
+
+        public Ecole(string nom, int anneeCreation)
+        {
+            Nom = nom;
+            AnneeCreation = anneeCreation;
+            Contacts = new Dictionary<int, Contact>();
+        }
 
         public string afficheTous()
         {
-            string renvoi = "";
+            string renvoi = $"Parmi les {this.nbContacts()} de l'école {this.Nom}, {this.nbEtudiants()}\nIles sont à l'école depuis en moyenne {this.ancienneteMoyenne()} ans\n----  Affichage Tous  -----";
             foreach (Contact contact in contacts.Values)
             {
-                renvoi = contact.ToString();
+                renvoi += $"{contact.ToString()}\n";
             }
+            renvoi += $"Moyenne des étudiants réguliers={this.moyenneEtudiantRegulier()}\n";
+            renvoi += $"----  Ajout d'un contact -----\n----  Ajout d'une collection de contacts -----\n----  Vérifications -----\n";
+            renvoi += $"Nb contacts : {nbContacts()}\n";
+            List<int> matricule =new List<int>();
+            matricule+=[]
+            foreach()
             return renvoi;
         }
 
@@ -53,20 +67,20 @@ namespace Classes.ClassesEcole
         {
             double moy = 0;
             int nb = 0;
-            foreach (KeyValuePair<int, Contact> contact in this.contacts)
+            foreach (Contact contact in Contacts.Values)
             {
-                if (contact.Value.
+                if (contact is EtudiantRegulier EtudiantReg)
                 {
-                    moy +=contact.;
-                    nb += 1;
+                    moy +=  EtudiantReg.NoteMoyenne;
+                    nb++;
                 }
             }
-            return moy /nb;
+            return moy / nb;
         }
 
         public void ajouterContact(Contact contact)
         {
-            this.contacts.Add(contact.Matricule, contact);
+            Contacts[contact.Matricule]=contact;
         }
 
         public void ajouterContact(Dictionary<int, Contact> cont)
