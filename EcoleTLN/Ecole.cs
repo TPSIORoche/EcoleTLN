@@ -25,17 +25,29 @@ namespace Classes.ClassesEcole
 
         public string afficheTous()
         {
-            string renvoi = $"Parmi les {this.nbContacts()} de l'école {this.Nom}, {this.nbEtudiants()}\nIles sont à l'école depuis en moyenne {this.ancienneteMoyenne()} ans\n----  Affichage Tous  -----";
+            string renvoi = $"Parmi les {this.nbContacts()} de l'école {this.Nom}, {this.nbEtudiants()} sont des étudiants\nIls sont à l'école depuis en moyenne {this.ancienneteMoyenne()} ans\n----  Affichage Tous  -----\n";
             foreach (Contact contact in contacts.Values)
             {
                 renvoi += $"{contact.ToString()}\n";
             }
             renvoi += $"Moyenne des étudiants réguliers={this.moyenneEtudiantRegulier()}\n";
             renvoi += $"----  Ajout d'un contact -----\n----  Ajout d'une collection de contacts -----\n----  Vérifications -----\n";
+            EtudiantRegulier Dembele = new EtudiantRegulier("Dembele", 1444, 2022, "SLAM", 15);
+            ajouterContact(Dembele);
+            int[] matricule = new int[] { 1200, 9999, 1444, 2222 };
             renvoi += $"Nb contacts : {nbContacts()}\n";
-            List<int> matricule =new List<int>();
-            matricule+=[]
-            foreach()
+
+            for (int i = 0; i < matricule.Length; i++)
+            {
+                if (this.existeContact(matricule[i]))
+                {
+                    renvoi += $"{matricule[i]} existe\n";
+                }
+                else
+                {
+                    renvoi += $"{ matricule[i]} n'existe pas\n";
+                }
+            }
             return renvoi;
         }
 

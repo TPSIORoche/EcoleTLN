@@ -40,7 +40,7 @@ namespace Classes.ClassesEcole
     {
         private string section;
 
-        public Enseignant(int matricule, string nom, int anneeArrivee, string nomLaboratoire, double salaire) : base(matricule, nom, anneeArrivee, nomLaboratoire, salaire)
+        public Enseignant(int matricule, string nom, int anneeArrivee, string nomLaboratoire, double salaire,string section) : base(matricule, nom, anneeArrivee, nomLaboratoire, salaire)
         {
             Section = section;
         }

@@ -12,10 +12,10 @@ namespace EcoleTLN
         static void Main(string[] args)
         {
             Ecole tln = new Ecole("TLN", 1999);
-            EtudiantRegulier t1 = new EtudiantRegulier("Gaston Peutimide",1200, 2013, "SSC",2.5);
+            EtudiantRegulier t1 = new EtudiantRegulier("Gaston Peutimide",1200, 2013, "SSC",6);
             EtudiantRegulier t2 = new EtudiantRegulier("Yvan Rattrapeur", 1204, 2011, "SSC", 2.5);
             EtudiantEchange t3 = new EtudiantEchange("Bjorn Borgue", 1345, 2012, "Informatique","KTH");
-            Enseignant t4 = new Enseignant(1114, "Mathieu Matheu", 2011, "SSC", 10000);
+            Enseignant t4 = new Enseignant(1114, "Mathieu Matheu", 2011, "SSC", 10000,"Physique");
             Secretaitre t5 = new Secretaitre(1409, "Sophie Scribona", 2005, "LMT", 5000);
             tln.ajouterContact(t1);
             tln.ajouterContact(t2);
