@@ -26,3 +26,4 @@ namespace Classes.ClassesEcole
         protected string section;
     }
 }
+

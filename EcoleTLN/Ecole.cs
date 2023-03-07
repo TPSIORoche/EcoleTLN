@@ -17,10 +17,12 @@ namespace Classes.ClassesEcole
 
         public string afficheTous()
         {
+            string renvoi = "";
             foreach (Contact contact in contacts.Values)
             {
-
+                renvoi = contact.ToString();
             }
+            return renvoi;
         }
 
         public double ancienneteMoyenne()
@@ -50,14 +52,16 @@ namespace Classes.ClassesEcole
         public double moyenneEtudiantRegulier()
         {
             double moy = 0;
-            foreach (Contact contact in contacts.Values)
+            int nb = 0;
+            foreach (KeyValuePair<int, Contact> contact in this.contacts)
             {
-                if (estEtudiant(contact)&& contact is EtudiantRegulier)
+                if (contact.Value.
                 {
-                    moy+=this.contacts.Values.
+                    moy +=contact.;
+                    nb += 1;
                 }
             }
-            return moy / this.nbEtudiants;
+            return moy /nb;
         }
 
         public void ajouterContact(Contact contact)

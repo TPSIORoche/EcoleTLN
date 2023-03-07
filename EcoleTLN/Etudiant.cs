@@ -10,16 +10,31 @@ namespace Classes.ClassesEcole
     {
         protected string section;
 
-        protected Etudiant(string section) : base(matricule, nom, anneeArrivee)
+        protected Etudiant(string nom, int matricule, int anneeArrivee, string section):base(matricule, nom, anneeArrivee)
         {
+            this.nom = nom;
+            this.matricule = matricule;
+            this.anneeArrivee = anneeArrivee;
             this.section = section;
         }
+
     }
 
     class EtudiantEchange : Etudiant
     {
-        private string UnivesiteOrigine;
+        private string univesiteOrigine;
 
+        public EtudiantEchange(string nom, int matricule, int anneeArrivee, string section,string univesiteOrigine) : base(nom, matricule, anneeArrivee, section)
+        {
+            this.univesiteOrigine = univesiteOrigine;
+        }
+
+        public override string ToString()
+        {
+            return $"Etudiant Régulier :\n\tMatricule : {this.matricule}\n\tNom : {this.nom}\n\tAnnée : {this.AnneeArrivee}\n\tSection : {this.section}\n\tMoyenne : {this.univesiteOrigine}";
+        }
+
+         
 
     }
 
@@ -27,12 +42,18 @@ namespace Classes.ClassesEcole
     {
         private double noteMoyen;
 
-        public EtudiantRegulier(double noteMoyen):base(section)
+        public EtudiantRegulier(string nom, int matricule, int anneeArrivee, string section,double noteMoyen) : base(nom, matricule, anneeArrivee, section)
         {
-            NoteMoyen = noteMoyen;
+            this.NoteMoyen = noteMoyen;
         }
 
         public double NoteMoyen { get => noteMoyen; set => noteMoyen = value; }
+
+        public override string ToString()
+        {
+            return $"Etudiant Régulier :\n\tMatricule : {this.matricule}\n\tNom : {this.nom}\n\tAnnée : {this.AnneeArrivee}\n\tSection : {this.section}\n\tMoyenne : {this.noteMoyen}";
+            
+        }
     }
 
 }

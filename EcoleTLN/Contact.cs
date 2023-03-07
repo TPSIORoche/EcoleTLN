@@ -9,7 +9,7 @@ namespace Classes.ClassesEcole
 {
     abstract class Contact
     {
-        private int matricule;
+        protected int matricule;
         protected string nom;
         protected int anneeArrivee;
 
@@ -51,6 +51,9 @@ namespace Classes.ClassesEcole
                 }
             }
         }
+
+        public abstract string ToString();
+        
     }
 
 }
